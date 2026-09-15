@@ -1,0 +1,162 @@
+/* ============================================
+   Tag utilities
+   Reusable colored tags for research highlights,
+   publications, projects, etc. Each tag pairs a
+   text color with a matching soft background,
+   following the same recipe as --accent/--accent-soft
+   in style.css.
+
+   Usage: add a second class alongside the existing
+   component class, e.g.
+     <span class="highlight-tag tag-sensing">Instrumented objects</span>
+     <span class="pub-tag tag-health">ECG foundation models</span>
+   ============================================ */
+
+:root {
+  --tag-sensing: #6ea8fe;
+  --tag-sensing-soft: rgba(110, 168, 254, 0.14);
+
+  --tag-health: #f27979;
+  --tag-health-soft: rgba(242, 121, 121, 0.14);
+
+  --tag-neuro: #b98af8;
+  --tag-neuro-soft: rgba(185, 138, 248, 0.14);
+
+  --tag-affective: #f2b84b;
+  --tag-affective-soft: rgba(242, 184, 75, 0.14);
+
+  --tag-vision: #4fd1c5;
+  --tag-vision-soft: rgba(79, 209, 197, 0.14);
+
+  --tag-hci: #74d68a;
+  --tag-hci-soft: rgba(116, 214, 138, 0.14);
+
+  --tag-activity: #9ab8fe;
+  --tag-activity-soft: rgba(154, 184, 254, 0.14);
+
+  --tag-clinical: #f28fb0;
+  --tag-clinical-soft: rgba(242, 143, 176, 0.14);
+}
+
+/* Base look shared by all tag variants; color/background
+   are set per-variant below so this can be mixed into
+   .highlight-tag, .pub-venue, or any future tag element. */
+[class*="tag-"] {
+  display: inline-block;
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* Sensor-based / instrumented-object / wearable sensing work */
+.tag-sensing {
+  color: var(--tag-sensing);
+  background: var(--tag-sensing-soft);
+}
+
+/* Physiological signal ML, ECG/sleep, biomedical health data */
+.tag-health {
+  color: var(--tag-health);
+  background: var(--tag-health-soft);
+}
+
+/* Neurology, brain signals, clinical neuroscience */
+.tag-neuro {
+  color: var(--tag-neuro);
+  background: var(--tag-neuro-soft);
+}
+
+/* Affective computing, emotion recognition */
+.tag-affective {
+  color: var(--tag-affective);
+  background: var(--tag-affective-soft);
+}
+
+/* Computer vision, imagery-based sensing */
+.tag-vision {
+  color: var(--tag-vision);
+  background: var(--tag-vision-soft);
+}
+
+/* Human-computer interaction, VR, accessibility */
+.tag-hci {
+  color: var(--tag-hci);
+  background: var(--tag-hci-soft);
+}
+
+/* Human activity recognition, motion/behavior modeling */
+.tag-activity {
+  color: var(--tag-activity);
+  background: var(--tag-activity-soft);
+}
+
+/* Clinical populations, neurodevelopmental / pediatric focus */
+.tag-clinical {
+  color: var(--tag-clinical);
+  background: var(--tag-clinical-soft);
+}
+
+/* ============================================
+   Venue link
+   Right-aligned pill next to a publication's venue,
+   opening the journal/conference homepage.
+   Usage:
+     <div class="pub-head">
+       <span class="pub-venue">...</span>
+       <a class="venue-link" href="..." target="_blank" rel="noopener">Venue site</a>
+     </div>
+   ============================================ */
+.pub-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.pub-head .pub-venue {
+  margin-bottom: 0;
+}
+
+.venue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: var(--accent-strong);
+  border: 1px solid var(--border-strong);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: border-color .15s ease, background .15s ease;
+}
+.venue-link:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+.venue-link svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+/* Publication status badge, e.g. "In review", separate from the venue tag */
+.pub-venue-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.status-in-review {
+  color: var(--tag-affective);
+  background: var(--tag-affective-soft);
+}
