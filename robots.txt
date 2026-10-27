@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nicololaporta.github.io/sitemap.xml
+Sitemap: https://nico-la-porta.github.io/sitemap.xml
